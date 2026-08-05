@@ -1,0 +1,12 @@
+SELECT [ProductKey]
+      ,[ProductAlternateKey]
+      ,[ProductSubcategoryKey]
+      ,[EnglishProductName]
+      ,[StandardCost]
+      ,[Color]
+      ,[ListPrice]
+      ,[DaysToManufacture]
+      ,[ModelName]
+      ,[EnglishDescription]
+  FROM [AdventureWorksDW2025].[dbo].[DimProduct]
+  WHERE FinishedGoodsFlag = 1

@@ -1,0 +1,6 @@
+SELECT [SalesTerritoryKey]
+      ,[SalesTerritoryAlternateKey]
+      ,[SalesTerritoryRegion]
+      ,[SalesTerritoryCountry]
+      ,[SalesTerritoryGroup]
+  FROM [AdventureWorksDW2025].[dbo].[DimSalesTerritory]

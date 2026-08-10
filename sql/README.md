@@ -19,5 +19,6 @@ Grande parte dos estudos utiliza como base o banco de dados **AdventureWorksDW20
 - **09** - SELECT: consultas básicas, seleção de colunas, `DISTINCT`, operações simples, `TOP` e `TOP WITH TIES`
 - **10** - WHERE: operadores de comparação e filtragem de registros
 - **11** - WHERE: utilização de `BETWEEN`, `NOT` e `IN` para filtros
+- **12** - WHERE: utilização do `LIKE` para filtragem de fragmentos e composições
 
 > 🚧 Esta documentação está em constante evolução e novos tópicos serão adicionados conforme o repositório for sendo desenvolvido.

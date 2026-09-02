@@ -22,5 +22,6 @@ Grande parte dos estudos utiliza como base o banco de dados **AdventureWorksDW20
 - **12** - WHERE: utilização do `LIKE` para filtragem de fragmentos e composições
 - **13** - COUNT, SUM, AVG, MAX e MIN: opeções básicas com colunas
 - **14** - ALIAS: renomear colunas
+- **15** - ROUND: Arrendondar volores das colunas
 
 > 🚧 Esta documentação está em constante evolução e novos tópicos serão adicionados conforme o repositório for sendo desenvolvido.

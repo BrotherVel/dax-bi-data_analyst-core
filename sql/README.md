@@ -23,5 +23,6 @@ Grande parte dos estudos utiliza como base o banco de dados **AdventureWorksDW20
 - **13** - COUNT, SUM, AVG, MAX e MIN: opeções básicas com colunas
 - **14** - ALIAS: renomear colunas
 - **15** - ROUND: Arrendondar volores das colunas
+- **16** - ORDER BY: Ordernação colunas em ordem acendente ou descendente
 
 > 🚧 Esta documentação está em constante evolução e novos tópicos serão adicionados conforme o repositório for sendo desenvolvido.

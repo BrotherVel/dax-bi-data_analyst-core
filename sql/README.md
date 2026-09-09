@@ -24,5 +24,6 @@ Grande parte dos estudos utiliza como base o banco de dados **AdventureWorksDW20
 - **14** - ALIAS: renomear colunas
 - **15** - ROUND: Arrendondar volores das colunas
 - **16** - ORDER BY: Ordernação colunas em ordem acendente ou descendente
+- **17** - GROUP BY: Agrupamento de dados
 
 > 🚧 Esta documentação está em constante evolução e novos tópicos serão adicionados conforme o repositório for sendo desenvolvido.

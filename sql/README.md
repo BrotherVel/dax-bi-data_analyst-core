@@ -25,5 +25,6 @@ Grande parte dos estudos utiliza como base o banco de dados **AdventureWorksDW20
 - **15** - ROUND: Arrendondar volores das colunas
 - **16** - ORDER BY: Ordernação colunas em ordem acendente ou descendente
 - **17** - GROUP BY: Agrupamento de dados
+- **18** - HAVING: Filtragem de dados posterior ao agrupamento
 
 > 🚧 Esta documentação está em constante evolução e novos tópicos serão adicionados conforme o repositório for sendo desenvolvido.

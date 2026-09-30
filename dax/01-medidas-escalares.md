@@ -1,4 +1,5 @@
 # **Medidas Escalares**
+![DAX](https://img.shields.io/badge/DAX-Power%20BI-yellow)
 
 As medidas escalares são funções simples que transformam os dados para a obtenção de um resultado.
 

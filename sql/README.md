@@ -27,5 +27,6 @@ Grande parte dos estudos utiliza como base o banco de dados **AdventureWorksDW20
 - **17** - GROUP BY: Agrupamento de dados
 - **18** - HAVING: Filtragem de dados posterior ao agrupamento
 - **19** - JOIN's e INNERJOIN: Conexões entre tabelas.
+- **20** - OUTHER JOINS: Diferentes tipos de conexões entre tabalas.
 
 > 🚧 Esta documentação está em constante evolução e novos tópicos serão adicionados conforme o repositório for sendo desenvolvido.

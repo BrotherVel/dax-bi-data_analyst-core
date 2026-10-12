@@ -1,0 +1,158 @@
+table Dim_Costumer
+	lineageTag: b92e1d28-cb66-432f-a656-279559b8d9c4
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a2bf01e-4690-451a-9ba1-e85940a81bd5
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f367cc27-b8a3-48d4-a19c-a1c4cf35f090
+		summarizeBy: none
+		sourceColumn: GeographyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: a12eb2ee-f3fe-493a-aaf9-84fc8e96a0cb
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: b29bcdcb-5816-4fdb-a82d-06461b263372
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaritalStatus
+		dataType: string
+		lineageTag: fcba17b8-b92d-48d5-b461-5e2be8510c45
+		summarizeBy: none
+		sourceColumn: MaritalStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: f5d8f7a7-7a92-46ef-8f32-d0bf84de4ada
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearlyIncome
+		dataType: double
+		lineageTag: 16127eac-1747-483b-8047-ae761a4edd66
+		summarizeBy: none
+		sourceColumn: YearlyIncome
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalChildren
+		dataType: int64
+		formatString: 0
+		lineageTag: 52ff4cb8-42d7-4758-be37-6f178ddd6b75
+		summarizeBy: none
+		sourceColumn: TotalChildren
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberChildrenAtHome
+		dataType: int64
+		formatString: 0
+		lineageTag: a5e22d0c-8723-44e8-aa0b-f0216924a49d
+		summarizeBy: none
+		sourceColumn: NumberChildrenAtHome
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishEducation
+		dataType: string
+		lineageTag: 32781d2d-d87f-4a9a-a34c-4cb2937275cd
+		summarizeBy: none
+		sourceColumn: EnglishEducation
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishEducation
+		dataType: string
+		lineageTag: 793cda53-c96d-4dc5-875e-6fc2a9b5a8b0
+		summarizeBy: none
+		sourceColumn: SpanishEducation
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrenchEducation
+		dataType: string
+		lineageTag: 884a35c3-7018-43f1-95d6-6353cf7b491f
+		summarizeBy: none
+		sourceColumn: FrenchEducation
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishOccupation
+		dataType: string
+		lineageTag: d309ac63-d17b-47f8-9f39-ee8623fdf5b3
+		summarizeBy: none
+		sourceColumn: EnglishOccupation
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishOccupation
+		dataType: string
+		lineageTag: e4a40258-a89c-4859-b84b-6d8eed08c80e
+		summarizeBy: none
+		sourceColumn: SpanishOccupation
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrenchOccupation
+		dataType: string
+		lineageTag: d00783ad-e226-45e0-beb2-0bd2bbd40b72
+		summarizeBy: none
+		sourceColumn: FrenchOccupation
+
+		annotation SummarizationSetBy = Automatic
+
+	column HouseOwnerFlag
+		dataType: string
+		lineageTag: d55b1782-d1c3-4e83-8af4-c29318bc0fa0
+		summarizeBy: none
+		sourceColumn: HouseOwnerFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberCarsOwned
+		dataType: int64
+		formatString: 0
+		lineageTag: 0779083c-042b-4c05-86ab-88b3655c4b96
+		summarizeBy: none
+		sourceColumn: NumberCarsOwned
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Costumer = m
+		mode: import
+		source =
+				let
+				  Origem = Sql.Database("localhost", "AdventureWorksDW2025", [Query = "SELECT [CustomerKey]#(lf)      ,[GeographyKey]#(lf)      ,[FirstName]#(lf)      ,[LastName]#(lf)      ,[MaritalStatus]#(lf)      ,[Gender]#(lf)      ,[YearlyIncome]#(lf)      ,[TotalChildren]#(lf)      ,[NumberChildrenAtHome]#(lf)      ,[EnglishEducation]#(lf)      ,[SpanishEducation]#(lf)      ,[FrenchEducation]#(lf)      ,[EnglishOccupation]#(lf)      ,[SpanishOccupation]#(lf)      ,[FrenchOccupation]#(lf)      ,[HouseOwnerFlag]#(lf)      ,[NumberCarsOwned]#(lf)  FROM [AdventureWorksDW2025].[dbo].[DimCustomer]"])
+				in
+				  Origem
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

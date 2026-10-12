@@ -1,0 +1,126 @@
+table Dim_Date
+	lineageTag: c4806eed-381e-49db-a0d4-74604d9e9094
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: c9f4ced1-f020-43ba-8f0e-05b44404d2a6
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column FullDateAlternateKey
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a6915143-3762-4f72-ada2-2d24a0ee3af5
+		summarizeBy: none
+		sourceColumn: FullDateAlternateKey
+
+		variation Variation
+			isDefault
+			relationship: 79e737d2-5ef9-4648-8bfa-284d7ca68e8b
+			defaultHierarchy: LocalDateTable_cdb05630-e29f-4f8e-ae6b-3ff9fdb53f70.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayNumberOfWeek
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c8c0f29-62d5-493e-a317-4678e23c7188
+		summarizeBy: sum
+		sourceColumn: DayNumberOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishDayNameOfWeek
+		dataType: string
+		lineageTag: 81dd3d85-d4d7-43fc-9b25-1fa20ffa9fb4
+		summarizeBy: none
+		sourceColumn: EnglishDayNameOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayNumberOfMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: 182d0268-2534-49b4-97a3-6be3c9d251b2
+		summarizeBy: sum
+		sourceColumn: DayNumberOfMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayNumberOfYear
+		dataType: int64
+		formatString: 0
+		lineageTag: e8a0a487-2606-4930-a6e4-c41299123e0f
+		summarizeBy: sum
+		sourceColumn: DayNumberOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekNumberOfYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 02664f9a-e523-4174-ad11-07a52dbc8ae9
+		summarizeBy: sum
+		sourceColumn: WeekNumberOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishMonthName
+		dataType: string
+		lineageTag: a75aaa64-e2dc-4c7c-acdb-76ebc588d181
+		summarizeBy: none
+		sourceColumn: EnglishMonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumberOfYear
+		dataType: int64
+		formatString: 0
+		lineageTag: af481be7-c39d-440a-8652-506f1ce8fbfe
+		summarizeBy: sum
+		sourceColumn: MonthNumberOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalendarQuarter
+		dataType: int64
+		formatString: 0
+		lineageTag: e4525337-cda4-49e3-a5aa-56f8701b4eec
+		summarizeBy: sum
+		sourceColumn: CalendarQuarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalendarYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 1994cf90-9c8e-4446-b831-999e7f439725
+		summarizeBy: sum
+		sourceColumn: CalendarYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalendarSemester
+		dataType: int64
+		formatString: 0
+		lineageTag: 021849e9-435b-408f-9c67-90742509e989
+		summarizeBy: sum
+		sourceColumn: CalendarSemester
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Date = m
+		mode: import
+		source =
+				let
+				  Origem = Sql.Database("localhost", "AdventureWorksDW2025", [Query = "SELECT [DateKey]#(lf)      ,[FullDateAlternateKey]#(lf)      ,[DayNumberOfWeek]#(lf)      ,[EnglishDayNameOfWeek]#(lf)      ,[DayNumberOfMonth]#(lf)      ,[DayNumberOfYear]#(lf)      ,[WeekNumberOfYear]#(lf)      ,[EnglishMonthName]#(lf)      ,[MonthNumberOfYear]#(lf)      ,[CalendarQuarter]#(lf)      ,[CalendarYear]#(lf)      ,[CalendarSemester]#(lf)  FROM [AdventureWorksDW2025].[dbo].[DimDate]"])
+				in
+				  Origem
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

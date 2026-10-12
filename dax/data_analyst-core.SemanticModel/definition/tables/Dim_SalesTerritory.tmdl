@@ -1,0 +1,57 @@
+table Dim_SalesTerritory
+	lineageTag: 7c81591b-6472-436a-b806-f8c27b9799df
+
+	column SalesTerritoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f82e8e74-7f63-4032-b420-75470e65813d
+		summarizeBy: none
+		sourceColumn: SalesTerritoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryAlternateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 38ba55a0-bbcb-4670-84ff-ecabcdbfb238
+		summarizeBy: count
+		sourceColumn: SalesTerritoryAlternateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryRegion
+		dataType: string
+		lineageTag: c9db7c99-21f8-49fa-8a36-450d59542297
+		summarizeBy: none
+		sourceColumn: SalesTerritoryRegion
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryCountry
+		dataType: string
+		lineageTag: 8ddfb48e-57e4-4729-a77d-74603602b55f
+		summarizeBy: none
+		sourceColumn: SalesTerritoryCountry
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryGroup
+		dataType: string
+		lineageTag: e9a56909-8658-4153-b4cb-3cc79e6a9119
+		summarizeBy: none
+		sourceColumn: SalesTerritoryGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_SalesTerritory = m
+		mode: import
+		source =
+				let
+				  Origem = Sql.Database("localhost", "AdventureWorksDW2025", [Query = "SELECT [SalesTerritoryKey]#(lf)      ,[SalesTerritoryAlternateKey]#(lf)      ,[SalesTerritoryRegion]#(lf)      ,[SalesTerritoryCountry]#(lf)      ,[SalesTerritoryGroup]#(lf)  FROM [AdventureWorksDW2025].[dbo].[DimSalesTerritory]"])
+				in
+				  Origem
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

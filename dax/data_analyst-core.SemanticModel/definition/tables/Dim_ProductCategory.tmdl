@@ -1,0 +1,32 @@
+table Dim_ProductCategory
+	lineageTag: cade2966-e32e-44aa-834d-f2e83bf52787
+
+	column ProductCategoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 94a1519f-8cae-4b58-bc98-37be7f25563c
+		summarizeBy: none
+		sourceColumn: ProductCategoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishProductCategoryName
+		dataType: string
+		lineageTag: f37c63f5-7b35-4ada-85f7-7625a86b3cd3
+		summarizeBy: none
+		sourceColumn: EnglishProductCategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_ProductCategory = m
+		mode: import
+		source =
+				let
+				  Origem = Sql.Database("localhost", "AdventureWorksDW2025", [Query = "SELECT [ProductCategoryKey]#(lf)      ,[EnglishProductCategoryName]#(lf)  FROM [AdventureWorksDW2025].[dbo].[DimProductCategory]"])
+				in
+				  Origem
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

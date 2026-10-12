@@ -1,0 +1,27 @@
+table #Medidas
+	lineageTag: e8801325-9d6e-42ec-b64e-5eb535eaab4c
+
+	measure 'Receita Total' = SUM(Fact_InternetSales[SalesAmount])
+		lineageTag: 30f7b069-ef5b-4710-8529-571ba4dca14a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Quantidade De Vendas' = COUNT(Fact_InternetSales[SalesAmount])
+		formatString: 0
+		lineageTag: 01a767c5-78d7-4569-8498-f558c2ac6af4
+
+	column Value
+		formatString: 0
+		lineageTag: 5dfec098-92ce-44b3-84ce-c9e1ff8fd988
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition #Medidas = calculated
+		mode: import
+		source = {1}
+
+	annotation PBI_Id = 8cbf5334afeb4e5bbb10da8b121520b1
+

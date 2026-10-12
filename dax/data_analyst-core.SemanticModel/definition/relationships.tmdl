@@ -1,0 +1,48 @@
+relationship 79e737d2-5ef9-4648-8bfa-284d7ca68e8b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Dim_Date.FullDateAlternateKey
+	toColumn: LocalDateTable_cdb05630-e29f-4f8e-ae6b-3ff9fdb53f70.Date
+
+relationship AutoDetected_c9fe1a2b-201c-44ca-99ba-0ea742bd2614
+	fromColumn: Fact_InternetSales.ProductKey
+	toColumn: Dim_Product.ProductKey
+
+relationship AutoDetected_8cf7a362-b178-4648-95b5-b91f1497a349
+	fromColumn: Fact_InternetSales.CustomerKey
+	toColumn: Dim_Costumer.CustomerKey
+
+relationship AutoDetected_cf587368-aecc-4d80-97a1-386a5a356cfb
+	fromColumn: Fact_InternetSales.SalesTerritoryKey
+	toColumn: Dim_SalesTerritory.SalesTerritoryKey
+
+relationship AutoDetected_54ee1f44-f19c-47dc-a393-64878b903baf
+	fromColumn: Dim_Geography.SalesTerritoryKey
+	toColumn: Dim_SalesTerritory.SalesTerritoryKey
+
+relationship AutoDetected_3ce9a1a5-a8f4-47e4-bea9-3a94581a0fe3
+	isActive: false
+	fromColumn: Dim_Costumer.GeographyKey
+	toColumn: Dim_Geography.GeographyKey
+
+relationship AutoDetected_67123f1a-f2c5-4aa1-890a-98486c41f8c1
+	fromColumn: Dim_Product.ProductSubcategoryKey
+	toColumn: Dim_ProductSubcategory.ProductSubcategoryKey
+
+relationship AutoDetected_ac3437ad-357a-4d68-ab68-2ce24cac857d
+	fromColumn: Dim_ProductSubcategory.ProductCategoryKey
+	toColumn: Dim_ProductCategory.ProductCategoryKey
+
+relationship 2956b20d-ceaf-a253-5c78-87750c01c0c8
+	fromColumn: Fact_InternetSales.OrderDateKey
+	toColumn: Dim_Date.DateKey
+
+relationship 89f5e270-2dbb-d8a7-b150-cd179b634065
+	isActive: false
+	fromColumn: Fact_InternetSales.DueDateKey
+	toColumn: Dim_Date.DateKey
+
+relationship c3d912bb-830b-e9d3-b501-564585dc5fad
+	isActive: false
+	fromColumn: Fact_InternetSales.ShipDateKey
+	toColumn: Dim_Date.DateKey
+

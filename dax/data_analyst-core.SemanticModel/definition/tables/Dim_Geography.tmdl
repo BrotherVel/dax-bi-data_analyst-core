@@ -1,0 +1,97 @@
+table Dim_Geography
+	lineageTag: ca958b46-f0e4-4a3d-b157-65cbd2b61a63
+
+	column GeographyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 8965e155-15e9-4c65-b8bc-66008b2a3e07
+		summarizeBy: count
+		sourceColumn: GeographyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: b90c20c6-87e4-4b1b-8f70-cda3eca62291
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceCode
+		dataType: string
+		lineageTag: 258cb99a-713a-4ebc-bf18-fab98da94123
+		summarizeBy: none
+		sourceColumn: StateProvinceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceName
+		dataType: string
+		lineageTag: c528bce2-5055-494c-ba2e-bbff32427ba1
+		summarizeBy: none
+		sourceColumn: StateProvinceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionCode
+		dataType: string
+		lineageTag: e16f020e-525d-400e-9dc6-d93dcb38f545
+		summarizeBy: none
+		sourceColumn: CountryRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishCountryRegionName
+		dataType: string
+		lineageTag: 914a1496-4d99-43d7-aa66-e87156f3f1a0
+		summarizeBy: none
+		sourceColumn: EnglishCountryRegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishCountryRegionName
+		dataType: string
+		lineageTag: 6838b83b-a33a-4644-85ad-fed0b3dbe777
+		summarizeBy: none
+		sourceColumn: SpanishCountryRegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrenchCountryRegionName
+		dataType: string
+		lineageTag: 7cd0a046-5391-4e4c-a671-545f447d5769
+		summarizeBy: none
+		sourceColumn: FrenchCountryRegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		lineageTag: 768e7b0b-918e-4784-8f51-fa45464e780c
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 36863906-0ce9-41e8-87f5-c14cc517111c
+		summarizeBy: none
+		sourceColumn: SalesTerritoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Geography = m
+		mode: import
+		source =
+				let
+				  Origem = Sql.Database("localhost", "AdventureWorksDW2025", [Query = "SELECT [GeographyKey]#(lf)      ,[City]#(lf)      ,[StateProvinceCode]#(lf)      ,[StateProvinceName]#(lf)      ,[CountryRegionCode]#(lf)      ,[EnglishCountryRegionName]#(lf)      ,[SpanishCountryRegionName]#(lf)      ,[FrenchCountryRegionName]#(lf)      ,[PostalCode]#(lf)      ,[SalesTerritoryKey]#(lf)  FROM [AdventureWorksDW2025].[dbo].[DimGeography]"])
+				in
+				  Origem
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,102 @@
+table Dim_Product
+	lineageTag: ebf05243-d598-416f-b0d8-8c6a18bafa33
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: fa9ced1c-ff1b-4642-8e8a-81e814acc93c
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductAlternateKey
+		dataType: string
+		lineageTag: d5ccc047-b244-4f7a-b730-e0f1faf3470d
+		summarizeBy: none
+		sourceColumn: ProductAlternateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSubcategoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: e22c1477-4c1b-4024-b9e0-39695a9f9c86
+		summarizeBy: none
+		sourceColumn: ProductSubcategoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishProductName
+		dataType: string
+		lineageTag: 856fbace-cfbc-460f-8713-c3668a8b7bff
+		summarizeBy: none
+		sourceColumn: EnglishProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column StandardCost
+		dataType: double
+		lineageTag: 2d16820f-0e55-4a88-a654-a0347c90626b
+		summarizeBy: sum
+		sourceColumn: StandardCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Color
+		dataType: string
+		lineageTag: 323eda21-7b5f-4adb-ad0d-fd1182b1a3cf
+		summarizeBy: none
+		sourceColumn: Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column ListPrice
+		dataType: double
+		lineageTag: a9c64fec-0bff-4c19-9b10-0be4e284f8ba
+		summarizeBy: sum
+		sourceColumn: ListPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DaysToManufacture
+		dataType: int64
+		formatString: 0
+		lineageTag: bdfcb28c-f0ef-4ebe-a2c4-b701665bf4a7
+		summarizeBy: sum
+		sourceColumn: DaysToManufacture
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModelName
+		dataType: string
+		lineageTag: 69b5e7b8-3dcd-4e00-8085-28fd2b7526a7
+		summarizeBy: none
+		sourceColumn: ModelName
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishDescription
+		dataType: string
+		lineageTag: 3b75063f-78eb-4025-9da1-85fff7516eff
+		summarizeBy: none
+		sourceColumn: EnglishDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Product = m
+		mode: import
+		source =
+				let
+				  Origem = Sql.Database("localhost", "AdventureWorksDW2025", [Query = "SELECT [ProductKey]#(lf)      ,[ProductAlternateKey]#(lf)      ,[ProductSubcategoryKey]#(lf)      ,[EnglishProductName]#(lf)      ,[StandardCost]#(lf)      ,[Color]#(lf)      ,[ListPrice]#(lf)      ,[DaysToManufacture]#(lf)      ,[ModelName]#(lf)      ,[EnglishDescription]#(lf)  FROM [AdventureWorksDW2025].[dbo].[DimProduct]#(lf)  WHERE FinishedGoodsFlag = 1"])
+				in
+				  Origem
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
